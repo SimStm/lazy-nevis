@@ -61,6 +61,18 @@ jobs:
       - run: rustup target add ${{ matrix.target }}
       - run: bun install --frozen-lockfile
       - run: cargo fetch --manifest-path src-tauri/Cargo.toml --locked --target ${{ matrix.target }}
+      - name: Select release bundle formats
+        id: formats
+        shell: bash
+        run: |
+          bundles="${{ matrix.bundles }}"
+          expected="${{ matrix.expected }}"
+          if [ "${{ runner.os }}" = Windows ] && [[ "$GITHUB_REF_NAME" == *-rc.* ]]; then
+            bundles=nsis
+            expected=nsis
+          fi
+          echo "bundles=$bundles" >> "$GITHUB_OUTPUT"
+          echo "expected=$expected" >> "$GITHUB_OUTPUT"
       - name: Import optional Windows PFX
         if: runner.os == 'Windows'
         shell: pwsh
@@ -91,7 +103,7 @@ jobs:
         run: |
           config=()
           if [ "${{ runner.os }}" = Windows ] && [ -n "${WINDOWS_THUMBPRINT:-}" ]; then config=(--config "$RUNNER_TEMP/signing.json"); fi
-          bun run tauri build --target "${{ matrix.target }}" --bundles "${{ matrix.bundles }}" "${config[@]}"
+          bun run tauri build --target "${{ matrix.target }}" --bundles "${{ steps.formats.outputs.bundles }}" "${config[@]}"
       - name: Archive macOS app
         if: runner.os == 'macOS'
         run: |
@@ -99,7 +111,7 @@ jobs:
           test "$(printf '%s\n' "$app" | grep -c .)" -eq 1
           ditto -c -k --sequesterRsrc --keepParent "$app" "src-tauri/target/${{ matrix.target }}/release/bundle/LazyNevis_${GITHUB_REF_NAME#v}_macos-arm64_app.zip"
       - name: Normalize artifacts
-        run: bun scripts/normalize-release-artifacts.mjs "src-tauri/target/${{ matrix.target }}/release/bundle" release-assets "${GITHUB_REF_NAME#v}" "${{ matrix.platform }}" "${{ matrix.expected }}"
+        run: bun scripts/normalize-release-artifacts.mjs "src-tauri/target/${{ matrix.target }}/release/bundle" release-assets "${GITHUB_REF_NAME#v}" "${{ matrix.platform }}" "${{ steps.formats.outputs.expected }}"
         shell: bash
       - name: Verify stable macOS signature and notarization
         if: runner.os == 'macOS' && !contains(github.ref_name, '-rc.')
