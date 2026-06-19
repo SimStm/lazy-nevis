@@ -95,11 +95,12 @@ jobs:
         with:
           token: ${{ github.token }}
           working-directory: src-tauri
-      - name: Cargo license and source policy
-        uses: EmbarkStudios/cargo-deny-action@d8395c1c8c9df74d968a3bcbba5533e396ff43cf # v2.0.9
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@b8cecb83565409bcc297b2df6e77f030b2a468d5 # v2.82.0
         with:
-          command: check licenses sources
-          manifest-path: src-tauri/Cargo.toml
+          tool: cargo-deny@0.19.9
+      - name: Cargo license and source policy
+        run: cargo deny --manifest-path src-tauri/Cargo.toml check licenses sources
 
   dependency-review:
     name: Dependency review
