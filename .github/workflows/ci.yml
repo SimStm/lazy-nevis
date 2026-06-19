@@ -78,6 +78,9 @@ jobs:
 
   dependency-policy:
     name: Dependency policy
+    permissions:
+      checks: write
+      contents: read
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
