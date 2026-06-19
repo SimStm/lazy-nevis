@@ -11,7 +11,7 @@
 
 `package.json` is the human-edited version source; `bun run check:version` enforces equality with Cargo, Tauri, the changelog, and release tags. `0.1.0-rc.N` denotes ordered release candidates, `0.1.0` is the first stable release, patch versions contain compatible fixes, and other prereleases use SemVer identifiers. A prerelease is never promoted by renaming artifacts: stable is rebuilt from its own tag.
 
-Windows RCs publish an NSIS installer because MSI/WiX only accepts numeric prerelease identifiers and cannot represent `rc.N` without changing the application version. Stable Windows releases build both NSIS and MSI; CI exercises MSI separately with an ephemeral numeric smoke version.
+Windows RCs publish an NSIS installer because MSI/WiX only accepts numeric prerelease identifiers and cannot represent `rc.N` without changing the application version. Stable Windows releases build both NSIS and MSI from their numeric `X.Y.Z` version.
 
 `TAURI_SIGNING_PRIVATE_KEY` signs Tauri updater bundles only. It does not provide Apple Developer ID or Windows Authenticode identity. LazyNevis performs only a manual release-metadata check and opens the official GitHub release page; it does not auto-update, so updater signing is deliberately absent.
 
