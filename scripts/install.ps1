@@ -7,7 +7,7 @@ param(
   [string]$InstallDir
 )
 $ErrorActionPreference = 'Stop'
-$Repo = 'simstm/lazy-nevis'
+$Repo = 'SimStm/lazy-nevis'
 $TemporaryDirectory = $null
 $InstallSucceeded = $false
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-REPO="simstm/lazy-nevis"
+REPO="SimStm/lazy-nevis"
 VERSION=""
 PRERELEASE=0
 DRY_RUN=0
@@ -92,7 +92,7 @@ sums=[a for a in assets if a.get("name")=="SHA256SUMS"]; icons=[a for a in asset
 if len(matches)!=1 or len(sums)!=1 or len(icons)!=1: raise SystemExit("artifact, icon, or SHA256SUMS selection was not unique")
 for a in (matches[0],sums[0],icons[0]):
  u=a.get("browser_download_url","")
- if not u.startswith("https://github.com/simstm/lazy-nevis/releases/download/"): raise SystemExit("unofficial asset URL")
+ if not u.lower().startswith("https://github.com/simstm/lazy-nevis/releases/download/"): raise SystemExit("unofficial asset URL")
 print(r["tag_name"],matches[0]["name"],matches[0]["browser_download_url"],sums[0]["browser_download_url"],icons[0]["browser_download_url"],sep="\t")
 PY
 )
