@@ -14,6 +14,18 @@ LazyNevis is a privacy-first desktop focus tool. It watches the active window du
 
 ---
 
+## About the name
+
+*LazyNevis* is a pun on **Lazy** + **Never**, filtered through the comedic speech of **Mussum** (*Os Trapalhões*), Brazil's beloved comedy group from the 70s–90s. Mussum had a signature quirk: he added *-is* to words that didn't need it — *Cacildis*, *Horrivis*, and so on — turning ordinary sentences into something unmistakably his own. Run that filter on *Never* and you get *Nevis*.
+
+So **LazyNevis** phonetically reads as *Lazy Never* — the lazy one who never gives up on focusing.
+
+The logo pays tribute with two of Mussum's trademarks: his signature red hat and a smile tucked beneath the *-is* at the end of *Nevis*, nodding to his comedic spirit.
+
+For non-Brazilian readers, *LazyNevis* just reads as a short, invented word — which isn't a bad thing. Names like Figma, Trello, and Bun mean nothing outside their own context either.
+
+---
+
 ## Screenshots
 
 <!-- screenshot: Dashboard with a session running, showing live timers and current app name -->
@@ -214,6 +226,18 @@ Usage questions belong in [Discussions](https://github.com/simstm/lazy-nevis/dis
 
 ---
 
+## Roadmap
+
+This is direction, not a delivery promise.
+
+**Near term:** complete release-readiness, clean-machine RC testing, signing setup, and verified installers. Harden the privacy-preserving manual release check without adding automatic updates.
+
+**Later:** Linux ARM64 and macOS x64 evaluation. Homebrew Cask and Winget after stable signed artifact URLs exist. Accessibility, localization, rule diagnostics, and richer exports.
+
+**Not committed:** cloud sync, mobile apps, team monitoring, browser extensions, package repositories, Snap/Flatpak, or app-store releases.
+
+---
+
 ## Community
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [SUPPORT.md](SUPPORT.md), [GOVERNANCE.md](GOVERNANCE.md), and [ROADMAP.md](ROADMAP.md). LazyNevis is MIT licensed.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). LazyNevis is MIT licensed.

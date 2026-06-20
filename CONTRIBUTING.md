@@ -207,4 +207,26 @@ After you open a PR:
 
 ---
 
+## Getting help
+
+- Usage questions and troubleshooting: [GitHub Discussions](https://github.com/simstm/lazy-nevis/discussions).
+- Reproducible defects: use the Bug Report issue form; remove private window titles or paths from logs.
+- Vulnerabilities: report privately according to [SECURITY.md](SECURITY.md), never in a public issue.
+
+---
+
+## Governance
+
+LazyNevis is maintainer-led. `@simstm` has final authority over roadmap, merges, security response, releases, signing identities, and repository access. Reviews seek technical consensus, but maintenance capacity, privacy, safety, and product scope may decide an outcome.
+
+Contributors retain authorship of their work under the project license. Material decisions should be visible in issues, OpenSpec changes, or ADRs. If sustained participation grows, governance may evolve toward delegated area ownership; changes will be proposed publicly and recorded here.
+
+---
+
+## Third-party notices
+
+LazyNevis includes open-source dependencies distributed under their respective licenses. The authoritative dependency sets are `bun.lock` and `src-tauri/Cargo.lock`. Release SBOMs enumerate the exact resolved components. CI performs advisory and license-policy checks; maintainers must review new copyleft, source-available, or unknown licenses before release.
+
+---
+
 Thank you for contributing. LazyNevis exists because of people willing to improve it.

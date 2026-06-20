@@ -17,7 +17,8 @@ Read `AGENTS.md` and relevant `openspec/specs/*/spec.md`. Behavior/schema/securi
 - `src/services/tauri.ts` when Tauri commands are added or renamed.
 - Both `src/i18n/locales/en-US.json` and `src/i18n/locales/pt-BR.json` for new UI text.
 - `src-tauri/src/lib.rs` `generate_handler!` for new Rust commands.
-- Agent docs (`AGENTS.md`, `CLAUDE.md`, this file, `.cursor/rules/lazy-nevis.mdc`, `.github/copilot-instructions.md`, `GEMINI.md`) when shared rules change.
+- Agent docs (`AGENTS.md`, `CLAUDE.md`, this file, `.cursor/rules/lazy-nevis.mdc`, `.github/copilot-instructions.md`) when shared rules change.
+- `README.pt-BR.md` whenever `README.md` changes — both files must stay in full parity.
 - Relevant OpenSpec specs and tests when behavior changes.
 
 ## Validate

@@ -3,8 +3,9 @@
 ## Canonical Context
 - Read `RTK.md` before non-trivial changes.
 - Read relevant `openspec/specs/*/spec.md` files before behavior work and follow `openspec/README.md` for proposals.
-- Keep `AGENTS.md`, `CLAUDE.md`, `.claude/rules/project-rules.md`, `.cursor/rules/lazy-nevis.mdc`, `.github/copilot-instructions.md`, and `GEMINI.md` aligned when shared rules change.
+- Keep `AGENTS.md`, `CLAUDE.md`, `.claude/rules/project-rules.md`, `.cursor/rules/lazy-nevis.mdc`, and `.github/copilot-instructions.md` aligned when shared rules change.
 - `README.md` is user-facing; `RTK.md` is the agent-facing source of truth.
+- When `README.md` changes, update `README.pt-BR.md` to match — both files must stay in full parity.
 
 ## Task Routing And Handoff
 - Features, behavior/schema/security changes, and cross-module refactors start with an OpenSpec change; documented exemptions cover docs-only, test-only, dependency-only, and trivial behavior-preserving fixes.

@@ -32,7 +32,7 @@ cargo test --manifest-path src-tauri/Cargo.toml
 bun run quality
 ```
 
-Report task IDs, files owned, validation, unresolved risks, and manual actions. Keep `AGENTS.md`, this file, the Claude/Cursor rules, `.github/copilot-instructions.md`, and `GEMINI.md` aligned.
+Report task IDs, files owned, validation, unresolved risks, and manual actions. Keep `AGENTS.md`, this file, the Claude/Cursor rules, and `.github/copilot-instructions.md` aligned. When `README.md` changes, update `README.pt-BR.md` to match.
 
 ## Known Debt
 - Inline SQL still exists in `src-tauri/src/lib.rs`, `src-tauri/src/commands/audio.rs`, `src-tauri/src/commands/session.rs`, and `src-tauri/src/services/session_logger.rs`.
