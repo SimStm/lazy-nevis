@@ -6,9 +6,12 @@
 <p align="center"><strong>for lazy people who don't give upis.</strong></p>
 <p align="center">
   <a href="https://github.com/simstm/lazy-nevis/actions/workflows/ci.yml"><img src="https://github.com/simstm/lazy-nevis/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://deps.rs/repo/github/simstm/lazy-nevis"><img src="https://deps.rs/repo/github/simstm/lazy-nevis/status.svg" alt="Dependency Status"></a>
+  <a href="https://github.com/simstm/lazy-nevis/commits/main"><img src="https://img.shields.io/github/last-commit/simstm/lazy-nevis" alt="Last Commit"></a>
   <a href="https://github.com/simstm/lazy-nevis/releases/latest"><img src="https://img.shields.io/github/v/release/simstm/lazy-nevis?label=release&color=brightgreen" alt="Latest Release"></a>
   <a href="https://github.com/simstm/lazy-nevis/releases"><img src="https://img.shields.io/github/v/release/simstm/lazy-nevis?include_prereleases&label=pre-release&color=orange" alt="Latest Pre-release"></a>
   <a href="https://github.com/simstm/lazy-nevis/releases"><img src="https://img.shields.io/github/downloads/simstm/lazy-nevis/total?label=downloads" alt="Total Downloads"></a>
+  <a href="https://github.com/simstm/lazy-nevis/issues"><img src="https://img.shields.io/github/issues/simstm/lazy-nevis" alt="Open Issues"></a>
   <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" alt="Platforms: macOS, Windows, Linux">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
   <a href="https://www.buymeacoffee.com/simstm"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?logo=buymeacoffee&logoColor=000" alt="Buy Me a Coffee"></a>
