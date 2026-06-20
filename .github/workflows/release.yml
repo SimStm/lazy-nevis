@@ -105,6 +105,11 @@ jobs:
           APPLE_API_KEY: ${{ secrets.APPLE_API_KEY_ID }}
         shell: bash
         run: |
+          # When no Apple certificate is configured, unset signing env vars so Tauri
+          # does not attempt security import with an empty value.
+          if [ "${{ runner.os }}" = macOS ] && [ -z "${APPLE_CERTIFICATE:-}" ]; then
+            unset APPLE_CERTIFICATE APPLE_CERTIFICATE_PASSWORD APPLE_SIGNING_IDENTITY APPLE_API_ISSUER APPLE_API_KEY
+          fi
           config=()
           if [ "${{ runner.os }}" = Windows ] && [ -n "${WINDOWS_THUMBPRINT:-}" ]; then config=(--config "$RUNNER_TEMP/signing.json"); fi
           bun run tauri build --target "${{ matrix.target }}" --bundles "${{ steps.formats.outputs.bundles }}" "${config[@]}"
