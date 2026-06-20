@@ -83,7 +83,7 @@ METADATA=$(awk \
            asset_nm=""; asset_u=""; out_tag=""; out_nm=""; out_u=""
            out_sums=""; out_icon=""; mc=0; sc=0; ic=0; done=0 }
    done { next }
-   /^[[:space:]]*\{[[:space:]]*$/ {
+   /\{[[:space:]]*$/ {
      bd++
      if (bd==1) { rel_tag=""; rel_d="false"; rel_p="false"; in_a=0
                   out_nm=""; out_u=""; out_sums=""; out_icon=""; mc=0; sc=0; ic=0 }
@@ -98,9 +98,9 @@ METADATA=$(awk \
        asset_nm=""; asset_u=""
      } else if (bd==1) {
        if (rel_d!="true" && (allow=="1"||rel_p!="true") && (ver==""||rel_tag=="v"ver)) {
-         if (mc!=1||sc!=1||ic!=1) { print "artifact/icon/SHA256SUMS count not unique" > "/dev/stderr"; exit 1 }
+         if (mc!=1||sc!=1||ic!=1) { print "artifact/icon/SHA256SUMS count not unique (mc=" mc " sc=" sc " ic=" ic ")" > "/dev/stderr"; err=1; exit 1 }
          if (index(tolower(out_u),pfx)!=1||index(tolower(out_sums),pfx)!=1||index(tolower(out_icon),pfx)!=1) {
-           print "unofficial asset URL" > "/dev/stderr"; exit 1
+           print "unofficial asset URL" > "/dev/stderr"; err=1; exit 1
          }
          out_tag=rel_tag; done=1
        }
@@ -118,8 +118,8 @@ METADATA=$(awk \
      if      (/^[[:space:]]*"name"[[:space:]]*:/)                 { v=$0; sub(/.*:[[:space:]]*"/,"",v); sub(/".*$/,"",v); asset_nm=v }
      else if (/^[[:space:]]*"browser_download_url"[[:space:]]*:/) { v=$0; sub(/.*:[[:space:]]*"/,"",v); sub(/".*$/,"",v); asset_u=v }
    }
-   END { if (!done) { print "no matching published release" > "/dev/stderr"; exit 1 }
-         printf "%s\t%s\t%s\t%s\t%s\n", out_tag, out_nm, out_u, out_sums, out_icon }' \
+   END { if (!done && !err) { print "no matching published release" > "/dev/stderr"; exit 1 }
+         if (done) printf "%s\t%s\t%s\t%s\t%s\n", out_tag, out_nm, out_u, out_sums, out_icon }' \
   "$JSON")
 IFS="$(printf '\t')" read -r TAG ASSET_NAME ASSET_URL SUMS_URL ICON_URL <<EOF
 $METADATA
