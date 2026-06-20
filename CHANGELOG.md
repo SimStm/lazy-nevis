@@ -13,6 +13,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) — versions fo
 
 ---
 
+## [0.1.0-rc.2] - 2026-06-20
+
+### Changed
+- Publisher metadata updated to SIMSDEV; copyright and author references updated to Lucas Sims
+- Install scripts now run unattended by default (no interactive prompts); Windows installer reports install path after completion
+- Install documentation updated to one-liner commands (`bash <(curl ...)` / `iex "& { $(irm ...) }"`)
+
+---
+
 ## [0.1.0-rc.1] - 2026-06-19
 
 ### Added
