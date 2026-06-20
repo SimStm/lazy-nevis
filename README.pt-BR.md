@@ -4,8 +4,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="src/assets/brand/logo-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="src/assets/brand/logo-light.png">
+    <source media="(prefers-color-scheme: dark)" srcset="src/assets/brand/logo-light.png">
+    <source media="(prefers-color-scheme: light)" srcset="src/assets/brand/logo-dark.png">
     <img alt="LazyNevis" src="src/assets/brand/logo-light.png">
   </picture>
 </p>
