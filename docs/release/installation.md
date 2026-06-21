@@ -17,7 +17,7 @@ bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/m
 **Windows (PowerShell):**
 
 ```powershell
-iex "& { $(irm https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1) }"
+& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))
 ```
 
 ### Pre-release / RC build
@@ -33,7 +33,7 @@ bash <(curl -fL https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/m
 **Windows (PowerShell):**
 
 ```powershell
-iex "& { $(irm https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1) } -Prerelease"
+& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease
 ```
 
 Pass `--version x.y.z-rc.N` (or `-Version`) together with `--prerelease` to pin to a specific RC version rather than selecting the latest available pre-release.

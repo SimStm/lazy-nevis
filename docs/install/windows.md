@@ -11,12 +11,12 @@
 
 The install script downloads the latest release, verifies the SHA-256 checksum, checks GitHub build attestation, and runs the NSIS installer automatically.
 
-Open **PowerShell** (not Command Prompt) and run:
+Open **PowerShell** or **PowerShell 7** (not Command Prompt) and run:
 
 ### Stable release
 
 ```powershell
-iex "& { $(irm https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1) }"
+& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content))
 ```
 
 ### Pre-release / RC build
@@ -24,7 +24,7 @@ iex "& { $(irm https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/ma
 Pre-releases are not included in the `latest` URL and require the `-Prerelease` flag:
 
 ```powershell
-iex "& { $(irm https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1) } -Prerelease"
+& ([scriptblock]::Create((iwr 'https://raw.githubusercontent.com/SimStm/lazy-nevis/refs/heads/main/scripts/install.ps1' -UseBasicParsing).Content)) -Prerelease
 ```
 
 > **Why `-Prerelease`?** Without this flag, the script only selects stable releases. Pre-releases are skipped unless you opt in explicitly.
